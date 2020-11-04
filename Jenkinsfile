@@ -6,6 +6,9 @@ pipeline {
  stages {
   stage("Checkout"){
    agent any
+   when {
+					branch 'dev'
+				}
    steps{
      checkout scm
      //sh 'mvn clean test'
@@ -15,6 +18,9 @@ pipeline {
   
   stage("Tests") {
    agent any
+   when {
+					branch 'dev'
+				}
    steps {
     checkout scm
     sh 'mvn clean test'
@@ -22,6 +28,9 @@ pipeline {
    }
   }
   stage('Deploy'){
+   when {
+					branch 'dev'
+				}
    agent any
    steps{
      snDevOpsChange()
