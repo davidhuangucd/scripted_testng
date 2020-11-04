@@ -7,7 +7,7 @@ pipeline {
   stage("Checkout"){
    agent any
    when {
-					branch 'dev'
+					branch 'multibranch'
 				}
    steps{
      checkout scm
@@ -19,7 +19,7 @@ pipeline {
   stage("Tests") {
    agent any
    when {
-					branch 'dev'
+					branch 'multibranch'
 				}
    steps {
     checkout scm
@@ -29,7 +29,7 @@ pipeline {
   }
   stage('Deploy'){
    when {
-					branch 'dev'
+					branch 'multibranch'
 				}
    agent any
    steps{
